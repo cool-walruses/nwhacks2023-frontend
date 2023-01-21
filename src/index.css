@@ -1,0 +1,88 @@
+@font-face {
+  font-family: 'Input Mono';
+  src: url('https://cdn.glitch.global/d571c6b0-ac66-4343-9407-449d213137bd/Input-Regular_(InputMonoNarrow-Light).ttf?v=1674334775212');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Input Mono';
+  src: url('https://cdn.glitch.global/d571c6b0-ac66-4343-9407-449d213137bd/Input-Italic_(InputMonoNarrow-LightItalic).ttf?v=1674334782662');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Input Mono';
+  src: url('https://cdn.glitch.global/d571c6b0-ac66-4343-9407-449d213137bd/Input-Bold_(InputMonoNarrow-Medium).ttf?v=1674334780917');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Input Mono';
+  src: url('https://cdn.glitch.global/d571c6b0-ac66-4343-9407-449d213137bd/Input-BoldItalic_(InputMonoNarrow-MediumItalic).ttf?v=1674334779316');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Bios';
+  src: url('https://cdn.glitch.global/d571c6b0-ac66-4343-9407-449d213137bd/Bios%20Regular.otf?v=1674342441495');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Bios';
+  src: url('https://cdn.glitch.global/d571c6b0-ac66-4343-9407-449d213137bd/Bios%20Bold.otf?v=1674342442716');
+  font-weight: bold;
+  font-style: normal;
+}
+
+:root {
+  font-family: 'Sofia Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+
+  color: #ffffff;
+  background-color: #000000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+.display, .display-bold {
+  font-family: 'Bios', sans-serif;
+  text-transform: uppercase;
+}
+
+.display-bold {
+  font-weight: bold;
+}
+
+code {
+  font-family: 'Input Mono', monospace;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  font: inherit;
+}
