@@ -1,16 +1,17 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { PropsWithChildren } from "react"
-import { CopyBlock, tomorrowNight } from "react-code-blocks";
+import { arta, CopyBlock } from "react-code-blocks";
 import { CODE_BLOCK_LANG, PROGRAM_LANG } from "../../const/languages";
-import { FONT_WEIGHT } from "../../const/styles";
+import { COLORS, FONT_WEIGHT } from "../../const/styles";
+import useFade from "../../hooks/useFade";
 
 const Bubble = styled.div`
   width: auto;
   max-width: 500px;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 10px;
-  padding: 30px 40px;
+  padding: 15px 20px;
   display: inline-block;
 `
 
@@ -24,6 +25,7 @@ type MessageProps = {
 }
 
 const Message: React.FC<PropsWithChildren<MessageProps>> = ({ origin, language, code, children }) => {
+  const avatarRef = useFade({ to: { opacity: 0, y: 20 }, trigger: { end: "top" }, viewport: { end: "top+=100px"}});
 
   const isAi = origin === "ai" || code;
 
@@ -47,33 +49,37 @@ const Message: React.FC<PropsWithChildren<MessageProps>> = ({ origin, language, 
     >
       {isAi &&
         <div
+          ref={avatarRef}
           css={css`
             background: skyblue;
-            width: 81px;
-            height: 81px;
+            width: 49px;
+            height: 49px;
             border-radius: 50px;
             display: inline-block;
+            flex-shrink: 0;
+            z-index: -9999;
           `}
         />
       }
       {!code ?
         <Bubble
           css={css`
-            background: ${isAi ? "#1C1C1C" : "darkblue"};
+            background: ${isAi ? "#1C1C1C" : COLORS.DK_PURPLE};
+            z-index: 9999;
           `}
         >
           {children}
           {!isAi && language &&
             <div
               css={css`
-                font-size: 14px;
+                font-size: 12px;
                 margin-bottom: -5px;
                 text-align: right;
                 opacity: 0.5;
                 font-weight: ${FONT_WEIGHT.BOLD};
               `}
             >
-              in {language}
+              {language}
             </div>
           }
         </Bubble>
@@ -81,15 +87,16 @@ const Message: React.FC<PropsWithChildren<MessageProps>> = ({ origin, language, 
         <CopyBlock
           text={code.text.replace("\t", "    ")}
           language={CODE_BLOCK_LANG[code.language]}
-          theme={tomorrowNight}
+          theme={arta}
           codeBlock
           showLineNumbers
           wrapLongLines
           customStyle={{
             borderRadius: 10,
-            padding: "20px 40px 20px 25px",
+            padding: "10px 40px 10px 12px",
             fontFamily: "Input Mono, monospace",
-            maxWidth: 800
+            maxWidth: 800,
+            zIndex: 9999
           }}
         />
       }

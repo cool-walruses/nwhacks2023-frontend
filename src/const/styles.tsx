@@ -4,7 +4,8 @@ export const COLORS = {
     LT_BLUE: "#9bd1e9",
     BLUE: "#1688b8",
     LT_PURPLE: "#B19CD9",
-    PURPLE: "#7d5eb6"
+    PURPLE: "#7d5eb6",
+    DK_PURPLE: "#20113a"
 }
 
 export const FONT_WEIGHT = {

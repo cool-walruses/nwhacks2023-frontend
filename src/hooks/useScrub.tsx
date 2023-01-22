@@ -16,10 +16,10 @@ const useScrub = ({ from, to, trigger, viewport }: any) => {
           }, {
             ...to,
             scrollTrigger: {
-              trigger: trigger.ref.current ?? element,
+              trigger: trigger?.ref?.current ?? element,
               scrub: true,
-              start: `${trigger.start ?? "top"} ${viewport.start ?? "bottom"}`,
-              end: `${trigger.end ?? "bottom"} ${viewport.end ?? "top"}`
+              start: `${trigger?.start ?? "top"} ${viewport?.start ?? "bottom"}`,
+              end: `${trigger?.end ?? "bottom"} ${viewport?.end ?? "top"}`
             },
           });
         }, element);

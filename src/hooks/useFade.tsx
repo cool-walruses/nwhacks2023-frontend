@@ -19,10 +19,10 @@ const useFade = ({ from, to, trigger, viewport }: any) => {
             ...to,
             duration: 0.25,
             scrollTrigger: {
-              trigger: trigger.ref.current ?? element,
+              trigger: trigger?.ref?.current ?? element,
               toggleActions: "none play reverse none",
-              start: `${trigger.start ?? "top"} ${viewport.start ?? "bottom"}`,
-              end: `${trigger.end ?? "bottom"} ${viewport.end ?? "top"}`
+              start: `${trigger?.start ?? "top"} ${viewport?.start ?? "bottom"}`,
+              end: `${trigger?.end ?? "bottom"} ${viewport?.end ?? "top"}`
             },
           });
         }, element);

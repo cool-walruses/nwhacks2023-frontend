@@ -1,22 +1,17 @@
-import { css } from "@emotion/react"
-import { Link } from "wouter"
-import { FONT_WEIGHT, HOME_PADDING, transition } from "../../const/styles"
+import { css } from "@emotion/react";
+import { PropsWithChildren } from "react";
+import { Link } from "wouter";
+import { FONT_WEIGHT, HOME_PADDING, transition } from "../const/styles";
 
 type NavBarProps = {
-  parentRef: any
+  fixed?: boolean
 }
 
-const NavBar: React.FC<NavBarProps> = ({ parentRef }) => {
-  const handleScroll = (id: string) => {
-    const element = parentRef.current.querySelector(`#${id}`);
-    console.log(parentRef);
-    if (element) element.scrollIntoView({ behavior: 'smooth' });
-  }
-
+const NavBar: React.FC<PropsWithChildren<NavBarProps>> = ({ fixed, children }) => {
   return (
     <div
       css={css`
-        position: absolute;
+        position: ${fixed ? "fixed" : "absolute"};
         width: 100%;
         display: flex;
         align-items: center;
@@ -24,11 +19,12 @@ const NavBar: React.FC<NavBarProps> = ({ parentRef }) => {
         padding-left: ${HOME_PADDING.LEFT};
         padding-right: ${HOME_PADDING.RIGHT};
         padding-top: ${HOME_PADDING.TOP};
+        z-index: 9999;
       `}
     >
       <Link
         className="display"
-        href="/"
+        href=""
         css={css`
           font-weight: bold;
           font-size: 50px;
@@ -66,8 +62,7 @@ const NavBar: React.FC<NavBarProps> = ({ parentRef }) => {
           }
         `}
       >
-        <a onClick={() => handleScroll("who")}>Who is it for</a>
-        <a onClick={() => handleScroll("how")}>How it works</a>
+        {children}
       </div>
     </div>
   )

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { BACKEND_URL } from "../const/urls";
 import { CopyBlock, tomorrowNight } from "react-code-blocks";
-import Message from "./message/Message";
+import Message from "./translate/Message";
 import { PROGRAM_LANG } from "../const/languages";
 
 const Lisa: React.FC = () => {

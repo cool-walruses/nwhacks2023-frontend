@@ -43,7 +43,7 @@ const Landing: React.FC = () => {
             background: linear-gradient(-45deg, ${COLORS.BLUE}, ${COLORS.PURPLE});
             background-size: 200% 200%;
 	          animation: gradient 10s infinite;
-            opacity: 0.5;
+            opacity: 1;
 
             @keyframes gradient {
               0% {
@@ -60,6 +60,7 @@ const Landing: React.FC = () => {
         >
           <video autoPlay muted loop
             css={css`
+              opacity: 1;
               mix-blend-mode: multiply;
               height: 100%;
               width: 177.77777778vh;
@@ -123,7 +124,7 @@ const Landing: React.FC = () => {
             `}
             ref={subRef}
           >
-            Trying to find the solution to that coding problem, but you can’t find anything? Struggling to find learning resources on programming in your native language?
+            Trying to find the solution to that coding problem, but you can't find anything? Struggling to find learning resources on programming in your native language?
           </div>
 
           <div ref={buttonRef}><LinkButtonWithArrow href={CHATBOT_URL}>Try our code generator</LinkButtonWithArrow></div>

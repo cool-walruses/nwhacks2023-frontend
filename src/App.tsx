@@ -38,7 +38,7 @@ const useHashLocation = () => {
     <QueryClientProvider client={queryClient}>
       <Router hook={useHashLocation as BaseLocationHook}>
         <Route path="" component={Home} />
-        <Route path={CHATBOT_URL} />
+        <Route path={CHATBOT_URL} component={Translate} />
         <Route path="lisa" component={Lisa} />
         <Route path="ruby" component={Ruby} />
       </Router>
