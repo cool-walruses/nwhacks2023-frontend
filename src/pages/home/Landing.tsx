@@ -16,6 +16,7 @@ const Landing: React.FC = () => {
           position: absolute;
           height: 100vh;
           width: 100%;
+          z-index: -1;
         `}
       >
         <div
@@ -24,24 +25,32 @@ const Landing: React.FC = () => {
             height: 100vh;
             overflow: hidden;
             position: relative;
-            z-index: -1;
           `}
         >
           <video autoPlay muted loop
             css={css`
               height: 100%;
-              width: 177.77777778vh; /* 100 * 16 / 9 */
+              width: 177.77777778vh;
               min-width: 100%;
-              min-height: 56.25vw; /* 100 * 9 / 16 */
+              min-height: 56.25vw;
               position: absolute;
-              left: 50%; /* % of surrounding element */
+              left: 50%;
               top: 50%;
-              transform: translate(-50%, -50%); /* % of current element */
+              transform: translate(-50%, -50%);
               opacity: 0.3;
             `}
           >
-            <source src="../../../public/home.mp4" />
+            <source src="/home.mp4" />
           </video>
+          <div
+            css={css`
+              width: 100%;
+              height: 50px;
+              background: linear-gradient(transparent, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5), #000000);
+              position: absolute;
+              bottom: 0;
+            `}
+          />
         </div>
       </div>
 

@@ -63,7 +63,7 @@ const Intro: React.FC = () => {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        gap: ${HOME_PADDING_EXTRA.LEFT};
+        gap: ${HOME_PADDING_EXTRA.BOTTOM};
       `}
     >
       <Aligner>
