@@ -16,10 +16,13 @@ const Translate: React.FC = () => {
   const [input, setInput] = useState("");
   const [language, setLanguage] = useState<PROGRAM_LANG>(PROGRAM_LANG.PYTHON);
   const [history, setHistory] = useState<any[]>([]);
-  const { data, error: isError, isLoading, refetch } = useQuery(["id", input],
-    () => axios.post(`${BACKEND_URL}/generator/generate`, {"programming_language": language, prompt: input}).then((res) => res.data),
-    { retry: false, enabled: false, initialData: {}, notifyOnChangeProps: ['data'],
-      onSuccess: (data) => setHistory([...history, { origin: "ai", text: data?.code ?? data?.message, language: data?.code ? language : undefined }]),
+  const { data, error: isError, isRefetching, refetch } = useQuery(["id", input],
+    () => axios.post(`${BACKEND_URL}/generator/generate`, {"programming_language": language, prompt: input}).then((res) => res.data).catch((res) => res.data),
+    { retry: false, enabled: false, initialData: {}, notifyOnChangeProps: ['data', 'isLoading'],
+      onSuccess: (data) => {
+        setHistory([...history, { origin: "ai", text: data?.code ?? data?.message, language: data?.code ? language : undefined }]);
+        setInput("");
+      },
     }
   );
 
@@ -29,6 +32,8 @@ const Translate: React.FC = () => {
       refetch();
     }
   }, [input]);
+
+  console.log(isRefetching);
 
   const languageOptions = Object.values(PROGRAM_LANG).map((lang) => { return { value: lang, label: lang }});
 
@@ -61,7 +66,7 @@ const Translate: React.FC = () => {
         <Message
           origin="ai"
         >
-          Hey there! I'm DN!
+          Hey there! Tell me what you want to know!
         </Message>
 
         {React.Children.toArray(history.map((hist) =>
@@ -71,6 +76,8 @@ const Translate: React.FC = () => {
             code={hist.language && hist.origin === "ai" ? { text: hist.text, language: hist.language } : undefined}
           >{hist.text}</Message>
         ))}
+
+        {isRefetching && <Message origin="ai">...</Message>}
 
 
         {/* <Message
@@ -110,7 +117,7 @@ const Translate: React.FC = () => {
           `}
         >
           <Input
-            isLoading={isLoading}
+            isLoading={isRefetching}
             handleSubmit={setInput}
           />
           <div
@@ -121,11 +128,10 @@ const Translate: React.FC = () => {
             `}
           >
             <Select
-              isDisabled={isLoading}
               menuPlacement="top"
               value={{ value: language, label: language }}
               onChange={(e) => {
-                if (e !== null) setLanguage(e.value);
+                if (e !== null && !isRefetching) setLanguage(e.value);
                 }
               }
               options={languageOptions as any}
@@ -138,7 +144,6 @@ const Translate: React.FC = () => {
                   neutral20: "#555555",
                   neutral60: "#333333",
                   neutral80: "#ffffff",
-                  neutral90: "red",
                   primary25: "#111111"
                 }
               })}
