@@ -51,7 +51,7 @@ const Message: React.FC<PropsWithChildren<MessageProps>> = ({ origin, language, 
         <div
           ref={avatarRef}
           css={css`
-            background: skyblue;
+            background: ${COLORS.BLUE};
             width: 49px;
             height: 49px;
             border-radius: 50px;
@@ -59,7 +59,22 @@ const Message: React.FC<PropsWithChildren<MessageProps>> = ({ origin, language, 
             flex-shrink: 0;
             z-index: -9999;
           `}
-        />
+        >
+          <div
+            css={css`
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              height: 100%;
+              font-family: "Input Mono", monospace;
+              font-size: 20px;
+              font-weight: bold;
+              color: ${COLORS.LT_BLUE};
+            `}
+          >
+            o_o
+          </div>
+        </div>
       }
       {!code ?
         <Bubble

@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import FadeIn from "../../components/animations/FadeIn";
 import Scramble from "../../components/animations/Scramble";
 import { HOME_PADDING_EXTRA } from "../../const/styles";
+import useFadeIn from "../../hooks/useFadeIn";
 
 type BlockProps = {
   header: string,
@@ -58,6 +59,11 @@ const Image = styled.div`
 `
 
 const HowItWorks: React.FC = () => {
+  const obj = { from: { y: 25 }, to: { y: -25, delay: 0.25, duration: 1 } };
+
+  const ref1 = useFadeIn(obj);
+  const ref2 = useFadeIn(obj);
+
   return (
     <div
       id="how"
@@ -72,7 +78,7 @@ const HowItWorks: React.FC = () => {
       `}
     >
       <Aligner>
-        <Image />
+        <Image ref={ref1} />
         <Block
           header="Programming in your own words"
           body="Produce code using natural language. We use Codex, a model that was trained on millions of lines of public code on GitHub in order to make code generation possible. Learning how to program has never been easier without AI-driven development!"
@@ -84,7 +90,7 @@ const HowItWorks: React.FC = () => {
           header="Ask what you’re really thinking"
           body="Speak your mind in your native language. We use a state-of-the-art language translation model to allow you to request and receive code in any language. Accessibility to information is no longer a concern with a tool that can gather and present code in a way that matches your preferences."
         />
-        <Image />
+        <Image ref={ref2} />
       </Aligner>
 
     </div>

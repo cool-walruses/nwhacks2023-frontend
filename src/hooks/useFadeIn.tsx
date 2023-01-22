@@ -2,7 +2,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react"
 
-const useFadeIn = ({ from, to, trigger, viewport }: any) => {
+const useFadeIn = ({ from, to, trigger, viewport, scrollTrigger }: any) => {
   gsap.registerPlugin(ScrollTrigger);
 
   const ref = useRef<any>();
@@ -16,14 +16,15 @@ const useFadeIn = ({ from, to, trigger, viewport }: any) => {
             ...from
           }, {
             opacity: 1,
-            ...to,
             duration: 0.5,
             delay: 0.1,
+            ...to,
             scrollTrigger: {
               trigger: trigger?.ref?.current ?? element,
-              toggleActions: 'restart none none reverse',
+              toggleActions: 'restart none none reset',
               start: `${trigger?.start ?? "top"} ${viewport?.start ?? "bottom"}`,
-              end: `${trigger?.end ?? "bottom"} ${viewport?.end ?? "top"}`
+              end: `${trigger?.end ?? "bottom"} ${viewport?.end ?? "top"}`,
+              ...scrollTrigger
             },
           });
         }, element);

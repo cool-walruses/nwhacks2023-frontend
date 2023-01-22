@@ -3,6 +3,8 @@ const getPx = (num: number) => `${num}px`;
 export const COLORS = {
     LT_BLUE: "#9bd1e9",
     BLUE: "#1688b8",
+    DK_BLUE: "#023252",
+
     LT_PURPLE: "#B19CD9",
     PURPLE: "#7d5eb6",
     DK_PURPLE: "#20113a"
