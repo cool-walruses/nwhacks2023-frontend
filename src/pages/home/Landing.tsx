@@ -2,7 +2,7 @@ import { css } from "@emotion/react"
 import { useRef } from "react"
 import LinkButtonWithArrow from "../../components/LinkButtonWithArrow"
 import { FONT_WEIGHT, HOME_PADDING } from "../../const/styles"
-import { CHATBOT_URL } from "../../const/urls"
+import { CHATBOT_URL } from "../.././const/urls"
 import useFade from "../../hooks/useFade"
 import useScrub from "../../hooks/useScrub"
 

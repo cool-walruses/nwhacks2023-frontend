@@ -4,7 +4,6 @@ import NavBar from "./home/NavBar"
 const Ruby: React.FC = () => {
   return (
     <>
-      <NavBar />
       <Chat />
 
     </>
