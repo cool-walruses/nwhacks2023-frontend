@@ -2,7 +2,7 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled";
 import FadeIn from "../../components/animations/FadeIn";
 import Scramble from "../../components/animations/Scramble";
-import { HOME_PADDING_EXTRA } from "../../const/styles";
+import { FONT_WEIGHT, HOME_PADDING_EXTRA } from "../../const/styles";
 import useFadeIn from "../../hooks/useFadeIn";
 
 type BlockProps = {
@@ -56,6 +56,13 @@ const Image = styled.div`
   height: 500px;
   background: grey;
   border-radius: 250px;
+  display: flex;
+  color: #3b3b3b;
+  font-family: "Sofia Sans";
+  font-weight: ${FONT_WEIGHT.BOLD};
+  font-size: 50px;
+  align-items: center;
+  justify-content: center;
 `
 
 const HowItWorks: React.FC = () => {
@@ -78,7 +85,9 @@ const HowItWorks: React.FC = () => {
       `}
     >
       <Aligner>
-        <Image ref={ref1} />
+        <Image ref={ref1}>
+          hello world!
+        </Image>
         <Block
           header="Programming in your own words"
           body="Produce code using natural language. We use Codex, a model that was trained on millions of lines of public code on GitHub in order to make code generation possible. Learning how to program has never been easier without AI-driven development!"
