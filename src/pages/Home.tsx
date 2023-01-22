@@ -7,14 +7,14 @@ import TryNow from "./home/TryNow"
 const Home: React.FC = () => {
   const ref = useRef<any>();
 
-  return (
+  return (<>
+    <NavBar parentRef={ref} />
     <div ref={ref}>
-      <NavBar parentRef={ref} />
       <Landing />
       <HowItWorks />
       <TryNow />
     </div>
-  )
+  </>)
 }
 
 export default Home

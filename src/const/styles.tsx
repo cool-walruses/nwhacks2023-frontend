@@ -1,6 +1,10 @@
 const getPx = (num: number) => `${num}px`;
 
-export const colors = {
+export const COLORS = {
+    LT_BLUE: "#9bd1e9",
+    BLUE: "#1688b8",
+    LT_PURPLE: "#B19CD9",
+    PURPLE: "#7d5eb6"
 }
 
 export const FONT_WEIGHT = {
@@ -13,7 +17,7 @@ const padding = {
     left: 75,
     right: 75,
     top: 30,
-    bottom: 50
+    bottom: 75
 }
 
 export const HOME_PADDING = {
@@ -37,5 +41,7 @@ export const transition = (property: string | string[]) => {
 
     if (!Array.isArray(property)) return `transition: ${property}${transition};`
 
-    return `transition: ${property.forEach((p) => `${p}${transition}, `)}`;
+    const ret = `transition: ${property.join(`${transition}, `)}${transition};`
+
+    return ret;
 }

@@ -2,8 +2,10 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import React from "react";
 import { useLayoutEffect, useRef } from "react"
+import { COLORS } from "../../const/styles";
 
 const symbols = [..."!@#$%&*qwerty/"];
+const colors = [COLORS.LT_BLUE, COLORS.LT_PURPLE, COLORS.BLUE, COLORS.PURPLE];
 
 type ScrambleProps = {
   text: string,
@@ -24,13 +26,14 @@ const Scramble: React.FC<ScrambleProps> = ({ text }) => {
         chars.forEach((char: any, i: number) => {
           if (text[i] === " ") return;
           gsap.to(char, {
-            duration: 0.03,
+            duration: 0.05,
+            color: colors[Math.floor(Math.random() * colors.length)],
             keyframes: {
               innerHTML: Array(2).fill(() => { return () => symbols[Math.floor(Math.random() * symbols.length)]})
             },
             opacity: 1,
             delay: (i+1)*0.03,
-            onComplete: () => { gsap.set(char, { innerHTML: text[i], delay: 0.03 }); },
+            onComplete: () => { gsap.set(char, { innerHTML: text[i], color: "#ffffff", delay: 0.05 }); },
             scrollTrigger: {
               trigger: element,
               start: 'top bottom',
