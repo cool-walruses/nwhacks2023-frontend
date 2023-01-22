@@ -1,4 +1,4 @@
-import Chat from "./convert/Chat"
+import Chat from "./translate/Chat"
 import NavBar from "./home/NavBar"
 
 const Ruby: React.FC = () => {
