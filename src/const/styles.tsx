@@ -1,3 +1,5 @@
+const getPx = (num: number) => `${num}px`;
+
 export const colors = {
 }
 
@@ -7,9 +9,27 @@ export const FONT_WEIGHT = {
     BLACK: 700
 }
 
-export const HOME_PADDING = {
-    LEFT: "75px",
-    RIGHT: "75px",
-    TOP: "30px",
-    BOTTOM: "100px"
+const padding = {
+    left: 75,
+    right: 75,
+    top: 30,
+    bottom: 100
 }
+
+export const HOME_PADDING = {
+    LEFT: getPx(padding.left),
+    RIGHT: getPx(padding.right),
+    TOP: getPx(padding.top),
+    BOTTOM: getPx(padding.bottom)
+}
+
+const paddingExtraFactor = 2;
+
+export const HOME_PADDING_EXTRA = {
+    LEFT: getPx(padding.left * paddingExtraFactor),
+    RIGHT: getPx(padding.right * paddingExtraFactor),
+    TOP: getPx(padding.top * paddingExtraFactor),
+    BOTTOM: getPx(padding.bottom * paddingExtraFactor)
+}
+
+export const transition = (property: string) => `transition: ${property} 0.25s ease-in-out;`;

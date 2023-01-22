@@ -1,7 +1,7 @@
 import { css } from "@emotion/react"
-import { ArrowRight } from "react-feather"
-import Button from "../../components/Button"
-import { HOME_PADDING } from "../../const/styles"
+import LinkButtonWithArrow from "../../components/LinkButtonWithArrow"
+import { FONT_WEIGHT, HOME_PADDING } from "../../const/styles"
+import { CHATBOT_URL } from "../../const/urls"
 
 const Landing: React.FC = () => {
   return (
@@ -9,7 +9,6 @@ const Landing: React.FC = () => {
       css={css`
         width: 100%;
         height: 100vh;
-        background: #333333;
       `}
     >
       <div
@@ -27,27 +26,28 @@ const Landing: React.FC = () => {
             padding-right: ${HOME_PADDING.RIGHT};
           `}
         >
-          <div>Have you heard of Ligma?</div>
-
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae velit varius, tincidunt turpis non, accumsan lacus. Fusce tristique orci id ex elementum, sagittis vehicula purus vehicula. Maecenas ullamcorper vitae sapien sit amet efficitur. Maecenas in placerat massa. Quisque iaculis cursus rutrum. Donec ut felis vel risus venenatis efficitur quis id diam. Vivamus in tellus dolor.
-          </div>
-
-          <Button
+          <div
+            className="header"
             css={css`
-              display: flex;
-              align-items: center;
+              margin-bottom: 25px;
+              font-size: 100px;
+              font-weight: ${FONT_WEIGHT.BOLD};
             `}
           >
-            Try now
-            <ArrowRight
-              css={css`
-                margin-top: -2px;
-                margin-left: 10px;
-                margin-right: -5px;
-              `}
-            />
-          </Button>
+            Lorem Ipsum Dolor Sit Amet
+          </div>
+
+          <div
+            css={css`
+              margin-bottom: 75px;
+              width: 500px;
+              font-size: 18px;
+            `}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae velit varius, tincidunt turpis non, accumsan lacus.
+          </div>
+
+          <LinkButtonWithArrow href={CHATBOT_URL}>Try now</LinkButtonWithArrow>
         </div>
       </div>
     </div>

@@ -64,13 +64,12 @@ body {
   min-height: 100vh;
 }
 
-.display, .display-bold {
-  font-family: 'Bios', sans-serif;
-  text-transform: uppercase;
+.display {
+  font-family: 'Input Mono', monospace;
 }
 
-.display-bold {
-  font-weight: bold;
+.header {
+  line-height: 0.8em;
 }
 
 code {
