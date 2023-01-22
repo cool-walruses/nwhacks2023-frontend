@@ -9,7 +9,8 @@ const Team: React.FC = () => {
           height: 100vh;
           background: skyblue;
         `}
-      />
+      >
+      </div>
     </>
   )
 }

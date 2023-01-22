@@ -32,11 +32,11 @@ const NavBar: React.FC = () => {
           a {
             font-weight: ${FONT_WEIGHT.BOLD};
             display: inline-block;
-            margin-left: 40px;
+            margin-left: 50px;
             font-size: 18px;
             text-transform: uppercase;
             position: relative;
-            padding: 5px;
+            padding: 5px 0;
 
             &::before {
               background: #ffffff;
