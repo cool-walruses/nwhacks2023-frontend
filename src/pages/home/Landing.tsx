@@ -1,7 +1,7 @@
 import { css } from "@emotion/react"
 import { useRef } from "react"
 import LinkButtonWithArrow from "../../components/LinkButtonWithArrow"
-import { FONT_WEIGHT, HOME_PADDING } from "../../const/styles"
+import { COLORS, FONT_WEIGHT, HOME_PADDING } from "../../const/styles"
 import { CHATBOT_URL } from "../.././const/urls"
 import useFade from "../../hooks/useFade"
 import useScrub from "../../hooks/useScrub"
@@ -41,10 +41,27 @@ const Landing: React.FC = () => {
             height: 100vh;
             overflow: hidden;
             position: relative;
+            background: linear-gradient(-45deg, ${COLORS.BLUE}, ${COLORS.PURPLE});
+            background-size: 200% 200%;
+	          animation: gradient 10s ease infinite;
+            opacity: 0.5;
+
+            @keyframes gradient {
+              0% {
+                background-position: 0% 50%;
+              }
+              50% {
+                background-position: 100% 50%;
+              }
+              100% {
+                background-position: 0% 50%;
+              }
+            }
           `}
         >
           <video autoPlay muted loop
             css={css`
+              mix-blend-mode: multiply;
               height: 100%;
               width: 177.77777778vh;
               min-width: 100%;
@@ -53,7 +70,6 @@ const Landing: React.FC = () => {
               left: 50%;
               top: 50%;
               transform: translate(-50%, -50%);
-              opacity: 0.3;
             `}
           >
             <source src="/home.mp4" />

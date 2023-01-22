@@ -2,7 +2,7 @@ import { css } from "@emotion/react"
 import { PropsWithChildren } from "react"
 import { ArrowRight } from "react-feather"
 import { Link } from "wouter"
-import { transition } from "../const/styles"
+import { COLORS, transition } from "../const/styles"
 import Button from "./Button"
 
 type LinkButtonWithArrow = {
@@ -19,14 +19,26 @@ const LinkButtonWithArrow: React.FC<PropsWithChildren<LinkButtonWithArrow>> = ({
           position: relative;
           padding-right: 50px;
           cursor: pointer;
-          ${transition("opacity")}
+          overflow: hidden;
+          ${transition(["background"])}
 
           &:hover {
-            opacity: 0.6;
+            background: transparent;
 
             .arrow {
               margin-right: -5px;
             }
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(90deg, ${COLORS.LT_BLUE}, ${COLORS.LT_PURPLE});
+            width: 100%;
+            height: 100%;
+            z-index: -1
           }
         `}
       >

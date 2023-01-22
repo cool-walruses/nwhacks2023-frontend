@@ -7,14 +7,14 @@ import Team from "./home/Team"
 const Home: React.FC = () => {
   const ref = useRef<any>();
 
-  return (
+  return (<>
+    <NavBar parentRef={ref} />
     <div ref={ref}>
-      <NavBar parentRef={ref} />
       <Landing />
       <HowItWorks />
       <Team />
     </div>
-  )
+  </>)
 }
 
 export default Home
