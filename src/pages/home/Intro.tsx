@@ -2,7 +2,7 @@ import { css } from "@emotion/react"
 import styled from "@emotion/styled";
 import FadeIn from "../../components/animations/FadeIn";
 import Scramble from "../../components/animations/Scramble";
-import { FONT_WEIGHT, HOME_PADDING, HOME_PADDING_EXTRA } from "../../const/styles";
+import { HOME_PADDING_EXTRA } from "../../const/styles";
 
 type BlockProps = {
   header: string,
@@ -56,6 +56,7 @@ const Image = styled.div`
 const Intro: React.FC = () => {
   return (
     <div
+      id="intro"
       css={css`
         width: 100%;
         padding: ${HOME_PADDING_EXTRA.BOTTOM} ${HOME_PADDING_EXTRA.LEFT};

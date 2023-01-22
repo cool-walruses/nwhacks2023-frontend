@@ -32,4 +32,10 @@ export const HOME_PADDING_EXTRA = {
     BOTTOM: getPx(padding.bottom * paddingExtraFactor)
 }
 
-export const transition = (property: string) => `transition: ${property} 0.25s ease-in-out;`;
+export const transition = (property: string | string[]) => {
+    const transition = " 0.25s ease-in-out";
+
+    if (!Array.isArray(property)) return `transition: ${property}${transition};`
+
+    return `transition: ${property.forEach((p) => `${p}${transition}, `)}`;
+}

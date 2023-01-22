@@ -1,11 +1,27 @@
 import { css } from "@emotion/react"
+import { useRef } from "react"
 import LinkButtonWithArrow from "../../components/LinkButtonWithArrow"
 import { FONT_WEIGHT, HOME_PADDING } from "../../const/styles"
 import { CHATBOT_URL } from "../../const/urls"
+import useFade from "../../hooks/useFade"
+import useScrub from "../../hooks/useScrub"
 
 const Landing: React.FC = () => {
+  const ref = useRef<any>();
+
+  const trigger = { ref: ref, start: "bottom" };
+  const viewport = { end: "top+=300px" }
+
+  const fadeRef = useFade({ to: { y: -15 }, trigger, viewport });
+
+  const titleRef = useScrub({ to: { y: 175 }, trigger, viewport });
+  const subRef = useScrub({ to: { y: 150 }, trigger, viewport });
+  const buttonRef = useScrub({ to: { y: 100 }, trigger, viewport });
+
+
   return (
     <div
+      ref={ref}
       css={css`
         width: 100%;
         height: 100vh;
@@ -68,14 +84,16 @@ const Landing: React.FC = () => {
             padding-left: ${HOME_PADDING.LEFT};
             padding-right: ${HOME_PADDING.RIGHT};
           `}
+          ref={fadeRef}
         >
           <div
             className="header"
             css={css`
-              margin-bottom: 25px;
+              margin-bottom: 40px;
               font-size: 100px;
               font-weight: ${FONT_WEIGHT.BOLD};
             `}
+            ref={titleRef}
           >
             Language to code, seamlessly.
           </div>
@@ -86,11 +104,12 @@ const Landing: React.FC = () => {
               width: 500px;
               font-size: 18px;
             `}
+            ref={subRef}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae velit varius, tincidunt turpis non, accumsan lacus.
           </div>
 
-          <LinkButtonWithArrow href={CHATBOT_URL}>Try now</LinkButtonWithArrow>
+          <div ref={buttonRef}><LinkButtonWithArrow href={CHATBOT_URL}>Try now</LinkButtonWithArrow></div>
         </div>
       </div>
     </div>

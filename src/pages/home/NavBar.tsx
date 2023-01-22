@@ -1,10 +1,18 @@
 import { css } from "@emotion/react"
-import { PropsWithChildren } from "react"
 import { Link } from "wouter"
 import { FONT_WEIGHT, HOME_PADDING, transition } from "../../const/styles"
-import { CHATBOT_URL } from "../../const/urls"
 
-const NavBar: React.FC = () => {
+type NavBarProps = {
+  parentRef: any
+}
+
+const NavBar: React.FC<NavBarProps> = ({ parentRef }) => {
+  const handleScroll = (id: string) => {
+    const element = parentRef.current.querySelector(`#${id}`);
+    console.log(parentRef);
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
+  }
+
   return (
     <div
       css={css`
@@ -37,6 +45,7 @@ const NavBar: React.FC = () => {
             text-transform: uppercase;
             position: relative;
             padding: 5px 0;
+            cursor: pointer;
 
             &::before {
               background: #ffffff;
@@ -57,8 +66,7 @@ const NavBar: React.FC = () => {
           }
         `}
       >
-        <Link href="/">Home</Link>
-        <Link href={CHATBOT_URL}>Convert</Link>
+        <a onClick={() => handleScroll("intro")}>About</a>
       </div>
     </div>
   )
