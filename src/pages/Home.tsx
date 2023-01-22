@@ -1,6 +1,7 @@
 import Intro from "./home/Intro"
 import Landing from "./home/Landing"
 import NavBar from "./home/NavBar"
+import Team from "./home/Team"
 
 const Home: React.FC = () => {
   return (
@@ -8,6 +9,7 @@ const Home: React.FC = () => {
       <NavBar />
       <Landing />
       <Intro />
+      <Team />
     </>
   )
 }

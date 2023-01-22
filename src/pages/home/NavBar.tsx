@@ -1,6 +1,8 @@
 import { css } from "@emotion/react"
+import { PropsWithChildren } from "react"
 import { Link } from "wouter"
-import { HOME_PADDING } from "../../const/styles"
+import { FONT_WEIGHT, HOME_PADDING, transition } from "../../const/styles"
+import { CHATBOT_URL } from "../../const/urls"
 
 const NavBar: React.FC = () => {
   return (
@@ -17,27 +19,46 @@ const NavBar: React.FC = () => {
       `}
     >
       <Link
-        className="display-bold"
+        className="display"
         href="/"
         css={css`
-          font-size: 40px;
-          padding-bottom: 7px;
+          font-weight: bold;
+          font-size: 50px;
         `}
-      >Title</Link>
+      >encode.</Link>
 
       <div
         css={css`
           a {
-            font-weight: bold;
+            font-weight: ${FONT_WEIGHT.BOLD};
             display: inline-block;
             margin-left: 40px;
-            font-size: 15px;
+            font-size: 18px;
             text-transform: uppercase;
+            position: relative;
+            padding: 5px;
+
+            &::before {
+              background: #ffffff;
+              opacity: 0;
+              content: '';
+              width: 100%;
+              height: 2px;
+              display: block;
+              position: absolute;
+              z-index: -1;
+              bottom: 0;
+              ${transition("opacity")}
+            }
+
+            &:hover::before {
+              opacity: 1;
+            }
           }
         `}
       >
         <Link href="/">Home</Link>
-        <Link href="/convert">Convert</Link>
+        <Link href={CHATBOT_URL}>Convert</Link>
       </div>
     </div>
   )
