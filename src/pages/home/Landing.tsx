@@ -84,7 +84,6 @@ const Landing: React.FC = () => {
           />
         </div>
       </div>
-
       <div
         css={css`
           height: 100%;

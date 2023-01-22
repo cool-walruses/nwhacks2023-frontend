@@ -2,7 +2,7 @@ import { css } from "@emotion/react"
 import { Link } from "wouter"
 import NavBar from "../components/NavBar"
 import { HOME_PADDING, HOME_PADDING_EXTRA } from "../const/styles"
-import { PROGRAM_LANG } from "../const/languages"
+import { CODE_BLOCK_LANG, PROGRAM_LANG } from "../const/languages"
 import Message from "./translate/Message"
 import Input from "./translate/Input"
 import { useQuery } from "@tanstack/react-query"
@@ -30,6 +30,8 @@ const Translate: React.FC = () => {
       }
     }
   );
+
+  console.log(CODE_BLOCK_LANG[language]);
 
   useEffect(() => {
     if (input !== "") {
