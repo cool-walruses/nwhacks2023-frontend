@@ -9,9 +9,11 @@ const colors = [COLORS.LT_BLUE, COLORS.LT_PURPLE, COLORS.BLUE, COLORS.PURPLE];
 
 type ScrambleProps = {
   text: string,
+  dark?: boolean,
+  extraDelay?: boolean
 }
 
-const Scramble: React.FC<ScrambleProps> = ({ text }) => {
+const Scramble: React.FC<ScrambleProps> = ({ text, dark, extraDelay }) => {
   gsap.registerPlugin(ScrollTrigger);
 
   const id = `scramble${Math.floor(Math.random() * 1000)}`;
@@ -32,8 +34,8 @@ const Scramble: React.FC<ScrambleProps> = ({ text }) => {
               innerHTML: Array(2).fill(() => { return () => symbols[Math.floor(Math.random() * symbols.length)]})
             },
             opacity: 1,
-            delay: (i+1)*0.03,
-            onComplete: () => { gsap.set(char, { innerHTML: text[i], color: "#ffffff", delay: 0.05 }); },
+            delay: extraDelay ? (i+1)*0.05 : (i+1)*0.03,
+            onComplete: () => { gsap.set(char, { innerHTML: text[i], color: dark ? "#000000" : "#ffffff", delay: 0.05 }); },
             scrollTrigger: {
               trigger: element,
               start: 'top bottom',
