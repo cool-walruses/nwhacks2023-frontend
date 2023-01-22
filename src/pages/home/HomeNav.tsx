@@ -7,7 +7,6 @@ type HomeNavProps = {
 const HomeNav: React.FC<HomeNavProps> = ({ parentRef }) => {
   const handleScroll = (id: string) => {
     const element = parentRef.current.querySelector(`#${id}`);
-    console.log(parentRef);
     if (element) element.scrollIntoView({ behavior: 'smooth' });
   }
 

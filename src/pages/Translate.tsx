@@ -8,21 +8,26 @@ import Input from "./translate/Input"
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
 import { BACKEND_URL } from "../const/urls"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import React from "react"
 import Select from 'react-select'
 
 const Translate: React.FC = () => {
+  const scrollRef = useRef<any>();
+
   const [input, setInput] = useState("");
   const [language, setLanguage] = useState<PROGRAM_LANG>(PROGRAM_LANG.PYTHON);
   const [history, setHistory] = useState<any[]>([]);
   const { data, error: isError, isRefetching, refetch } = useQuery(["id", input],
-    () => axios.post(`${BACKEND_URL}/generator/generate`, {"programming_language": language, prompt: input}).then((res) => res.data).catch((res) => res.data),
+    () => axios.post(`${BACKEND_URL}/generator/generate`, {"programming_language": language, prompt: input}).then((res) => res.data),
     { retry: false, enabled: false, initialData: {}, notifyOnChangeProps: ['data', 'isLoading'],
       onSuccess: (data) => {
         setHistory([...history, { origin: "ai", text: data?.code ?? data?.message, language: data?.code ? language : undefined }]);
         setInput("");
       },
+      onError: (err) => {
+        setHistory([...history, { origin: "ai", text: (err as any)?.response?.data?.message }])
+      }
     }
   );
 
@@ -33,7 +38,13 @@ const Translate: React.FC = () => {
     }
   }, [input]);
 
-  console.log(isRefetching);
+  useEffect(() => {
+    scrollToBottom();
+  }, [history])
+
+  const scrollToBottom = () => {
+    if (scrollRef) scrollRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
 
   const languageOptions = Object.values(PROGRAM_LANG).map((lang) => { return { value: lang, label: lang }});
 
@@ -79,19 +90,8 @@ const Translate: React.FC = () => {
 
         {isRefetching && <Message origin="ai">...</Message>}
 
-
-        {/* <Message
-          origin="user"
-          language={PROGRAM_LANG.PYTHON}
-        >
-          Can I get... uhhh... beesechurger?
-        </Message>
-
-
-        <Message
-          code={{text: output, language: PROGRAM_LANG.PYTHON}}
-        /> */}
       </div>
+      <div ref={scrollRef} />
       <div
         css={css`
           width: 100%;

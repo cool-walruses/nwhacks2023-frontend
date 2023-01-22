@@ -29,7 +29,7 @@ const NavBar: React.FC<PropsWithChildren<NavBarProps>> = ({ fixed, children }) =
           font-weight: bold;
           font-size: 50px;
         `}
-      >encode.</Link>
+      >incode.</Link>
 
       <div
         css={css`
