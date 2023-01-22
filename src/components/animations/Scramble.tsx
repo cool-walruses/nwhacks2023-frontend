@@ -46,7 +46,7 @@ const Scramble: React.FC<ScrambleProps> = ({ text }) => {
     }
   }, []);
 
-  return <span ref={ref} id={id}>{Array(text.length).fill(<span className="char"></span>)}</span>;
+  return <span ref={ref} id={id}>{[...text].map((_, i) => <span className="char" key={i}></span>)}</span>;
 }
 
 export default Scramble

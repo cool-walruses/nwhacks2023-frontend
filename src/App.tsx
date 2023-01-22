@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { Route, Switch } from 'wouter'
+import { CHATBOT_URL } from './const/urls'
 import Home from './pages/Home'
 import Lisa from './pages/Lisa'
 import Ruby from './pages/Ruby'
@@ -11,7 +12,7 @@ const App: React.FC = () => {
     <QueryClientProvider client={queryClient}>
       <Switch>
         <Route path="/" component={Home} />
-        <Route path="/convert" />
+        <Route path={CHATBOT_URL} />
         <Route path="/lisa" component={Lisa} />
         <Route path="/ruby" component={Ruby} />
       </Switch>

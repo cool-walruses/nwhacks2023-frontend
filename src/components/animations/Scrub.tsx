@@ -3,30 +3,24 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import React, { PropsWithChildren } from "react";
 import { useLayoutEffect, useRef } from "react"
 
-const FadeIn: React.FC<PropsWithChildren> = ({ children }) => {
+const Scrub: React.FC<PropsWithChildren> = ({ children }) => {
   gsap.registerPlugin(ScrollTrigger);
 
-  const id = `fadein${Math.floor(Math.random() * 1000)}`;
   const ref = useRef<any>();
 
   useLayoutEffect(() => {
     const element = ref.current;
     if (element) {
       const ctx = gsap.context(() => {
-          gsap.fromTo(element, {
-            opacity: 0,
-            y: 30
-          }, {
-            duration: 0.5,
+          gsap.to(element, {
             opacity: 1,
             y: 0,
             delay: 0.03,
             scrollTrigger: {
               trigger: element,
-              start: 'top-=30px bottom',
-              end: 'top center',
-              toggleActions: 'play none none reverse',
-              onEnter: () => gsap.set(element, { opacity: 0 }),
+              scrub: true,
+              start: 'top bottom',
+              end: 'top center'
             },
 
           });
@@ -37,7 +31,7 @@ const FadeIn: React.FC<PropsWithChildren> = ({ children }) => {
     }
   }, []);
 
-  return <div ref={ref} id={id}>{children}</div>;
+  return <div ref={ref}>{children}</div>;
 }
 
-export default FadeIn
+export default Scrub

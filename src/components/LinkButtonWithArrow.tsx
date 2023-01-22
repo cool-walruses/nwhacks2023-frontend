@@ -6,7 +6,7 @@ import { transition } from "../const/styles"
 import Button from "./Button"
 
 type LinkButtonWithArrow = {
-  href: string
+  href: string;
 }
 
 const LinkButtonWithArrow: React.FC<PropsWithChildren<LinkButtonWithArrow>> = ({ href, children }) => {
@@ -19,8 +19,11 @@ const LinkButtonWithArrow: React.FC<PropsWithChildren<LinkButtonWithArrow>> = ({
           position: relative;
           padding-right: 50px;
           cursor: pointer;
+          ${transition("opacity")}
 
           &:hover {
+            opacity: 0.6;
+
             .arrow {
               margin-right: -5px;
             }

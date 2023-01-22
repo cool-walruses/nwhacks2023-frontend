@@ -11,7 +11,7 @@ const Lisa: React.FC = () => {
 
   const { data, error: isError, isLoading } = useQuery(["id", input],
     () => axios.post(`${BACKEND_URL}/generator/generate`, input).then((res) => res.data.code),
-    { retry: false }
+    { retry: false, cacheTime: 0 }
   );
 
   const output = {
