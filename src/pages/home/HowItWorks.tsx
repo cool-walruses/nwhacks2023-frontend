@@ -54,6 +54,7 @@ const Image = styled.div`
   width: 500px;
   height: 500px;
   background: grey;
+  border-radius: 250px;
 `
 
 const HowItWorks: React.FC = () => {
