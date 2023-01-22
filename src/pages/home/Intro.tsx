@@ -58,13 +58,12 @@ const Intro: React.FC = () => {
     <div
       css={css`
         width: 100%;
-        background: #1A1A1A;
         padding: ${HOME_PADDING_EXTRA.BOTTOM} ${HOME_PADDING_EXTRA.LEFT};
 
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        gap: ${HOME_PADDING_EXTRA.LEFT};
+        gap: ${HOME_PADDING_EXTRA.BOTTOM};
       `}
     >
       <Aligner>
