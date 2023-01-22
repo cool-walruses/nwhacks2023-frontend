@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
-import { PropsWithChildren } from "react"
+import { PropsWithChildren, useState } from "react"
 import { arta, CopyBlock } from "react-code-blocks";
 import { CODE_BLOCK_LANG, PROGRAM_LANG } from "../../const/languages";
 import { COLORS, FONT_WEIGHT } from "../../const/styles";
@@ -28,6 +28,10 @@ const Message: React.FC<PropsWithChildren<MessageProps>> = ({ origin, language, 
   const avatarRef = useFade({ to: { opacity: 0, y: 20 }, trigger: { end: "top" }, viewport: { end: "top+=100px"}});
 
   const isAi = origin === "ai" || code;
+
+  const mouths = [..."wv- n_="]
+
+  const [mouth] = useState(mouths[Math.floor(Math.random() * mouths.length)]);
 
   return (
     <div
@@ -72,7 +76,7 @@ const Message: React.FC<PropsWithChildren<MessageProps>> = ({ origin, language, 
               color: ${COLORS.LT_BLUE};
             `}
           >
-            o_o
+            {`o${mouth}o`}
           </div>
         </div>
       }
