@@ -11,13 +11,40 @@ const Landing: React.FC = () => {
         height: 100vh;
       `}
     >
-      <video autoPlay muted loop css={css`
-                width: 100%;
-                height: 100vh;
-      `
-      }>
-        <source src="../../../public/home.mp4" />
-      </video>
+      <div
+        css={css`
+          position: absolute;
+          height: 100vh;
+          width: 100%;
+        `}
+      >
+        <div
+          css={css`
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            z-index: -1;
+          `}
+        >
+          <video autoPlay muted loop
+            css={css`
+              height: 100%;
+              width: 177.77777778vh; /* 100 * 16 / 9 */
+              min-width: 100%;
+              min-height: 56.25vw; /* 100 * 9 / 16 */
+              position: absolute;
+              left: 50%; /* % of surrounding element */
+              top: 50%;
+              transform: translate(-50%, -50%); /* % of current element */
+              opacity: 0.3;
+            `}
+          >
+            <source src="../../../public/home.mp4" />
+          </video>
+        </div>
+      </div>
+
       <div
         css={css`
           height: 100%;

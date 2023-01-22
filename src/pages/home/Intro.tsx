@@ -58,7 +58,6 @@ const Intro: React.FC = () => {
     <div
       css={css`
         width: 100%;
-        background: #1A1A1A;
         padding: ${HOME_PADDING_EXTRA.BOTTOM} ${HOME_PADDING_EXTRA.LEFT};
 
         display: flex;
