@@ -5,7 +5,6 @@ import Dropdown from "./translate/Dropdown"
 const Translate: React.FC = () => {
   return (
     <>
-      <NavBar />
       <Chat />
       <Dropdown />
     </>
