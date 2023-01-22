@@ -1,14 +1,13 @@
 import Chat from "./convert/Chat"
 import NavBar from "./home/NavBar"
 
-const Ruby: React.FC = () => {
+const Translate: React.FC = () => {
   return (
     <>
       <NavBar />
       <Chat />
-
     </>
   )
 }
 
-export default Ruby
+export default Translate
