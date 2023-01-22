@@ -68,19 +68,62 @@ const Intro: React.FC = () => {
       `}
     >
       <Aligner>
-        <Image />
+        <FadeIn>
+          <video autoPlay muted
+            css={css`
+              left: 50%;
+              top: 50%;
+              padding-right: 30px;
+              flex-shrink: 0;
+              width: 550px;
+              height: 550px;
+              background: grey;
+              border-radius: 20px;
+              box-shadow: inset 0px 0px 0px 100px rgba(0,0,0,0.9);
+            `}
+          >
+          <source src="/lightbulb.mp4"/>
+          </video>
+        </FadeIn>
         <Block
-          header="Section One"
-          body="Body text for section one. Body text for section one. Body text for section one. Body text for section one. Body text for section one."
+          header="Codify your ideas."
+          body="Bring your idea to life using your native language. Simply enter a prompt and Encode will translate it into code."
         />
       </Aligner>
 
       <Aligner>
         <Block
-          header="Section Two"
-          body="Body text for section one. Body text for section one. Body text for section one. Body text for section one. Body text for section one."
+          header="Learn to code."
+          body="Encode's fast and user-friendly UI makes it easy to use for beginners and professionals alike.
+          Experience language barrier-free learning with Encode's native language comments for easier code comprehension."
         />
-        <Image />
+        <div>
+          <FadeIn>
+            <div css={css`
+              transform: scale(0.85);
+            `}>
+              <img src="terminal.png"/>
+            </div>
+            <div css={css`
+              width: 400px;
+              height: 100px;
+              font-family: 'input mono';
+              font-size: 30px;
+              font-weight: bold;
+              text-align: left;
+              color: green;
+              top: 17px;
+            `}>
+              <span style={
+                {
+                  color: "gray"
+                }
+              }># Un programme pour dire bonjour au monde</span>
+              <br></br>
+              <span><Scramble text={"print(\"Bonjour le monde!\")"}/></span>
+            </div>
+          </FadeIn>
+        </div>
       </Aligner>
 
     </div>
