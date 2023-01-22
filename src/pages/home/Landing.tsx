@@ -11,6 +11,13 @@ const Landing: React.FC = () => {
         height: 100vh;
       `}
     >
+      <video autoPlay muted loop css={css`
+                width: 100%;
+                height: 100vh;
+      `
+      }>
+        <source src="../../../public/home.mp4" />
+      </video>
       <div
         css={css`
           height: 100%;
@@ -34,7 +41,7 @@ const Landing: React.FC = () => {
               font-weight: ${FONT_WEIGHT.BOLD};
             `}
           >
-            Lorem Ipsum Dolor Sit Amet
+            Language to code, seamlessly.
           </div>
 
           <div
