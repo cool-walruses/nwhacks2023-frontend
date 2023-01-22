@@ -56,10 +56,10 @@ const Image = styled.div`
   background: grey;
 `
 
-const Intro: React.FC = () => {
+const HowItWorks: React.FC = () => {
   return (
     <div
-      id="intro"
+      id="how"
       css={css`
         width: 100%;
         padding: ${HOME_PADDING_EXTRA.BOTTOM} ${HOME_PADDING_EXTRA.LEFT};
@@ -90,4 +90,4 @@ const Intro: React.FC = () => {
   )
 }
 
-export default Intro
+export default HowItWorks

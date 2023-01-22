@@ -66,7 +66,8 @@ const NavBar: React.FC<NavBarProps> = ({ parentRef }) => {
           }
         `}
       >
-        <a onClick={() => handleScroll("intro")}>About</a>
+        <a onClick={() => handleScroll("who")}>Who is it for</a>
+        <a onClick={() => handleScroll("how")}>How it works</a>
       </div>
     </div>
   )

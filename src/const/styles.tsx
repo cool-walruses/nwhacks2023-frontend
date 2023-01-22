@@ -13,7 +13,7 @@ const padding = {
     left: 75,
     right: 75,
     top: 30,
-    bottom: 100
+    bottom: 50
 }
 
 export const HOME_PADDING = {
@@ -29,7 +29,7 @@ export const HOME_PADDING_EXTRA = {
     LEFT: getPx(padding.left * paddingExtraFactor),
     RIGHT: getPx(padding.right * paddingExtraFactor),
     TOP: getPx(padding.top * paddingExtraFactor),
-    BOTTOM: getPx(padding.bottom * paddingExtraFactor)
+    BOTTOM: getPx(padding.bottom * paddingExtraFactor * paddingExtraFactor)
 }
 
 export const transition = (property: string | string[]) => {

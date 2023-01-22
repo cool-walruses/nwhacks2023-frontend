@@ -1,5 +1,5 @@
 import { useRef } from "react"
-import Intro from "./home/Intro"
+import HowItWorks from "./home/HowItWorks"
 import Landing from "./home/Landing"
 import NavBar from "./home/NavBar"
 import Team from "./home/Team"
@@ -11,7 +11,7 @@ const Home: React.FC = () => {
     <div ref={ref}>
       <NavBar parentRef={ref} />
       <Landing />
-      <Intro />
+      <HowItWorks />
       <Team />
     </div>
   )

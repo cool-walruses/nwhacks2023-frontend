@@ -10,13 +10,13 @@ const Landing: React.FC = () => {
   const ref = useRef<any>();
 
   const trigger = { ref: ref, start: "bottom" };
-  const viewport = { end: "top+=300px" }
+  const viewport = { end: "top+=250px" }
 
   const fadeRef = useFade({ to: { y: -15 }, trigger, viewport });
 
-  const titleRef = useScrub({ to: { y: 175 }, trigger, viewport });
-  const subRef = useScrub({ to: { y: 150 }, trigger, viewport });
-  const buttonRef = useScrub({ to: { y: 100 }, trigger, viewport });
+  const titleRef = useScrub({ to: { y: 180 }, trigger, viewport });
+  const subRef = useScrub({ to: { y: 160 }, trigger, viewport });
+  const buttonRef = useScrub({ to: { y: 120 }, trigger, viewport });
 
 
   return (
@@ -89,10 +89,11 @@ const Landing: React.FC = () => {
           <div
             className="header"
             css={css`
-              margin-bottom: 40px;
+              margin-bottom: 30px;
               font-size: 100px;
               font-weight: ${FONT_WEIGHT.BOLD};
               line-height: 0.8em;
+              width: 800px;
             `}
             ref={titleRef}
           >
@@ -101,7 +102,7 @@ const Landing: React.FC = () => {
 
           <div
             css={css`
-              margin-bottom: 75px;
+              margin-bottom: 60px;
               width: 500px;
               font-size: 18px;
             `}
