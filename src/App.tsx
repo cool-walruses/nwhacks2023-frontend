@@ -7,6 +7,7 @@ import { CHATBOT_URL } from './const/urls'
 import Home from './pages/Home'
 import Lisa from './pages/Lisa'
 import Ruby from './pages/Ruby'
+import Translate from './pages/Translate'
 
 const App: React.FC = () => {
   const queryClient = new QueryClient();
