@@ -22,20 +22,21 @@ const Scramble: React.FC<ScrambleProps> = ({ text }) => {
 
       const ctx = gsap.context(() => {
         chars.forEach((char: any, i: number) => {
+          if (text[i] === " ") return;
           gsap.to(char, {
-            duration: 0.05,
+            duration: 0.03,
             keyframes: {
-              innerHTML: Array(2).fill(() => { return () => symbols[Math.floor(Math.random() * symbols.length)] })
+              innerHTML: Array(2).fill(() => { return () => symbols[Math.floor(Math.random() * symbols.length)]})
             },
             opacity: 1,
-            delay: (i+1)*0.05,
-            onComplete: () => { gsap.set(char, { innerHTML: text[i], delay: 0.05 }); },
+            delay: (i+1)*0.03,
+            onComplete: () => { gsap.set(char, { innerHTML: text[i], delay: 0.03 }); },
             scrollTrigger: {
               trigger: element,
               start: 'top bottom',
               end: 'bottom center',
               toggleActions: 'play none none reset',
-              onEnter: () => gsap.set(char, { opacity: 0 }),
+              onEnter: () => gsap.set(char, { innerHTML: " ", opacity: 0 }),
             },
 
           });
@@ -46,7 +47,7 @@ const Scramble: React.FC<ScrambleProps> = ({ text }) => {
     }
   }, []);
 
-  return <span ref={ref} id={id}>{[...text].map((_, i) => <span className="char" key={i}></span>)}</span>;
+  return <span ref={ref} id={id}>{[...text].map((_, i) => <span className="char" key={i}> </span>)}</span>;
 }
 
 export default Scramble

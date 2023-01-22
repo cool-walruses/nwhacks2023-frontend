@@ -1,8 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { useSyncExternalStore } from 'react';
 import { Route, Router, Switch } from 'wouter'
-import useLocationProperty, { BaseLocationHook } from "wouter/use-location";
-import navigate from "wouter/use-location";
+import { BaseLocationHook } from "wouter/use-location";
 import { CHATBOT_URL } from './const/urls'
 import Home from './pages/Home'
 import Lisa from './pages/Lisa'

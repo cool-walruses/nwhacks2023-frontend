@@ -20,11 +20,12 @@ const Block: React.FC<BlockProps> = ({ header, body }) => {
       `}
     >
       <div
-        className="display header"
+        className="display"
         css={css`
           font-weight: bold;
           font-size: 50px;
           margin-bottom: 20px;
+          line-height: 0.9em;
         `}
       >
         <Scramble text={header} />
@@ -70,15 +71,15 @@ const Intro: React.FC = () => {
       <Aligner>
         <Image />
         <Block
-          header="Section One"
-          body="Body text for section one. Body text for section one. Body text for section one. Body text for section one. Body text for section one."
+          header="Programming in your own words"
+          body="Generate code in a programming language of your choice simply using natural language. We use Codex, a model that was trained on millions of lines of public code on GitHub in order to make automated code production possible. Learning how to program while suiting your specific needs has never been easier without AI-driven development."
         />
       </Aligner>
 
       <Aligner>
         <Block
-          header="Section Two"
-          body="Body text for section one. Body text for section one. Body text for section one. Body text for section one. Body text for section one."
+          header="Ask what you’re really thinking"
+          body="Prompt the model in the language that you are most comfortable with. We use a state-of-the-art language translation model to allow you to ask for and receive code in your native language without having to go through the trouble of learning another language to interpret code and search for solutions. Accessibility to information is no longer a concern with a tool that can gather and present code in a way that matches your preferences."
         />
         <Image />
       </Aligner>

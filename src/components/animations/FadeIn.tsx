@@ -20,12 +20,12 @@ const FadeIn: React.FC<PropsWithChildren> = ({ children }) => {
             duration: 0.5,
             opacity: 1,
             y: 0,
-            delay: 0.03,
+            delay: 1,
             scrollTrigger: {
               trigger: element,
               start: 'top-=30px bottom',
               end: 'top center',
-              toggleActions: 'play none none reverse',
+              toggleActions: 'restart none none reverse',
               onEnter: () => gsap.set(element, { opacity: 0 }),
             },
 

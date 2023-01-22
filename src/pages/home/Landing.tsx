@@ -92,6 +92,7 @@ const Landing: React.FC = () => {
               margin-bottom: 40px;
               font-size: 100px;
               font-weight: ${FONT_WEIGHT.BOLD};
+              line-height: 0.8em;
             `}
             ref={titleRef}
           >
@@ -106,10 +107,10 @@ const Landing: React.FC = () => {
             `}
             ref={subRef}
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae velit varius, tincidunt turpis non, accumsan lacus.
+            Trying to find the solution to that coding problem, but you can’t find anything? Struggling to find learning resources on programming in your native language?
           </div>
 
-          <div ref={buttonRef}><LinkButtonWithArrow href={CHATBOT_URL}>Try now</LinkButtonWithArrow></div>
+          <div ref={buttonRef}><LinkButtonWithArrow href={CHATBOT_URL}>Try our code generator</LinkButtonWithArrow></div>
         </div>
       </div>
     </div>
