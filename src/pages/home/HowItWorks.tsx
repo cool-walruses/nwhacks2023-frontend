@@ -75,7 +75,7 @@ const HowItWorks: React.FC = () => {
         <Image />
         <Block
           header="Programming in your own words"
-          body="Produce code using natural language. We use Codex, a model that was trained on millions of lines of public code on GitHub in order to make code generation. Learning how to program has never been easier without AI-driven development!"
+          body="Produce code using natural language. We use Codex, a model that was trained on millions of lines of public code on GitHub in order to make code generation possible. Learning how to program has never been easier without AI-driven development!"
         />
       </Aligner>
 
