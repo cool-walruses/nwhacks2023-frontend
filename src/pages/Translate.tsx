@@ -66,7 +66,7 @@ const Translate: React.FC = () => {
         css={css`
           width: 100%;
           padding-top: 150px;
-          padding-bottom: 200px;
+          padding-bottom: 150px;
           padding-left: ${HOME_PADDING.LEFT};
           padding-right: ${HOME_PADDING.RIGHT};
           display: flex;

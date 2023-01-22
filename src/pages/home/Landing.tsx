@@ -40,7 +40,7 @@ const Landing: React.FC = () => {
             height: 100vh;
             overflow: hidden;
             position: relative;
-            background: linear-gradient(-45deg, ${COLORS.BLUE}, ${COLORS.PURPLE});
+            /* background: linear-gradient(-45deg, ${COLORS.BLUE}, ${COLORS.PURPLE});
             background-size: 200% 200%;
 	          animation: gradient 10s infinite;
             opacity: 1;
@@ -55,13 +55,12 @@ const Landing: React.FC = () => {
               100% {
                 background-position: 0% 50%;
               }
-            }
+            } */
           `}
         >
           <video autoPlay muted loop
             css={css`
-              opacity: 1;
-              mix-blend-mode: multiply;
+              opacity: 0.3;
               height: 100%;
               width: 177.77777778vh;
               min-width: 100%;
