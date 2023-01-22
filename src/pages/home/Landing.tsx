@@ -21,7 +21,6 @@ const Landing: React.FC = () => {
 
   return (
     <div
-      ref={ref}
       css={css`
         width: 100%;
         height: 100vh;
@@ -43,7 +42,7 @@ const Landing: React.FC = () => {
             position: relative;
             background: linear-gradient(-45deg, ${COLORS.BLUE}, ${COLORS.PURPLE});
             background-size: 200% 200%;
-	          animation: gradient 10s ease infinite;
+	          animation: gradient 10s infinite;
             opacity: 0.5;
 
             @keyframes gradient {
@@ -130,6 +129,7 @@ const Landing: React.FC = () => {
           <div ref={buttonRef}><LinkButtonWithArrow href={CHATBOT_URL}>Try our code generator</LinkButtonWithArrow></div>
         </div>
       </div>
+      <div ref={ref} />
     </div>
   )
 }
