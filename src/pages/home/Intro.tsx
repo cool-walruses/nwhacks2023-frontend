@@ -17,6 +17,7 @@ const Block: React.FC<BlockProps> = ({ header, body }) => {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        max-width: 520px;
       `}
     >
       <div
@@ -45,6 +46,7 @@ const Block: React.FC<BlockProps> = ({ header, body }) => {
 const Aligner = styled.div`
   display: flex;
   gap: 30px;
+  justify-content: space-between;
 `
 
 const Image = styled.div`
