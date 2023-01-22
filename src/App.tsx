@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
   const currentLocation = () => window.location.hash.replace(/^#/, "") || "/";
 
-const navigate = (to) => {
+const navigate = (to: any) => {
   window.location.hash = to;
 };
 
